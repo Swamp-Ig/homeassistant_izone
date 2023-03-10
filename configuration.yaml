@@ -7,3 +7,4 @@ logger:
   logs:
     custom_components.izone: info
     pizone: info
+    asyncio: error
