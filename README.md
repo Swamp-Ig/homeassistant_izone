@@ -10,8 +10,6 @@
 [![Discord][discord-shield]][discord]
 [![Community Forum][forum-shield]][forum]
 
-_Integration to integrate with [izone][iZone]._
-
 The `iZone` integration allows access of control of a local [iZone](https://izone.com.au/) ducted reverse-cycle climate control devices. These are largely available in Australia.
 
 This is a fork (by the same author) of the `iZone` integration installed by default in homeassistant. The default integration is no longer being maintained and will be removed in the future in favor of this HACS component.
@@ -55,18 +53,13 @@ izone:
     - "000013170"
 ```
 
-{% configuration %}
-exclude:
-  description: Exclude particular units from integration with Home Assistant.
-  required: false
-  type: list
-{% endconfiguration %}
-
 ## Using the integration
+
+Each zone and the master controller are presented to HA as separate but connected devices.
 
 ### Master controller
 
-Unit modes off, heat, cool, dry, and fan only are supported. For units fitted with the 'iSave' system, which vents in external air into the house, this is available as 'eco' mode.
+Unit modes `off`, `heat`, `cool`, `heat/cool`, `dry`, and `fan only` are supported. For units fitted with the 'iSave' system, which vents in external air into the house, this is available as `eco` preset and will run in `fan only` mode.
 
 ### Zones
 
@@ -87,8 +80,6 @@ zone.
 You can add configure to read these values into sensors (in `configuration.yaml`),
 along with the supply temperature (use the ID of your unit):
 
-{% raw %}
-
 ```yaml
 # Example configuration.yaml entry to create sensors
 # from the izone controller state attributes
@@ -103,8 +94,6 @@ template:
       state: "{{ state_attr('climate.izone_controller_0000XXXXX','supply_temperature') }}"
       unit_of_measurement: "°C"
 ```
-
-{% endraw %}
 
 And then graph them on a dashboard, along with the standard values such as the current temperature. Either add the sensor entities via the visual editor, or cut and paste this
 snippet into the code editor:
