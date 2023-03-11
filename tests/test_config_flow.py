@@ -28,6 +28,8 @@ def mock_disco():
 
 @pytest.fixture
 def mock_start_discovery(mock_disco):
+    """Mock start discovery."""
+
     def do_disovered(hass):
         async_dispatcher_send(hass, DISPATCH_CONTROLLER_DISCOVERED, True)
         return mock_disco
