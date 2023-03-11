@@ -1,6 +1,5 @@
 {
     "name": "Integration blueprint",
     "country": "AU",
-    "homeassistant": "2022.2.0",
-    "issue_tracker": "https://github.com/Swamp-Ig/homeassistant_izone/issues"
+    "homeassistant": "2022.2.0"
 }
