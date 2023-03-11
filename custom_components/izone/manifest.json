@@ -8,8 +8,8 @@
     "models": ["iZone"]
   },
   "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/Swamp-Ig/homeassistant_izone/issues",
   "loggers": ["pizone"],
   "requirements": ["python-izone==1.2.9"],
-  "version": "1.2.9",
-  "issue_tracker": "https://github.com/Swamp-Ig/homeassistant_izone/issues"
+  "version": "1.2.9"
 }
