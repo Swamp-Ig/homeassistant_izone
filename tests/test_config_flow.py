@@ -41,7 +41,7 @@ async def test_not_found(hass: HomeAssistant, mock_start_discovery) -> None:
     with patch(
         "custom_components.izone.discovery.async_start_discovery_service",
         side_effect=mock_start_discovery,
-    ) as start_disco, patch(
+    ), patch(
         "custom_components.izone.discovery.async_stop_discovery_service",
         return_value=None,
     ) as stop_disco:
@@ -67,13 +67,13 @@ async def test_found(hass: HomeAssistant, mock_start_discovery) -> None:
     with patch(
         "custom_components.izone.climate.async_setup_entry",
         return_value=True,
-    ) as mock_setup, patch(
+    ), patch(
         "custom_components.izone.discovery.async_start_discovery_service",
         side_effect=mock_start_discovery,
-    ) as start_disco, patch(
+    ), patch(
         "custom_components.izone.discovery.async_stop_discovery_service",
         return_value=None,
-    ) as stop_disco:
+    ):
         result = await hass.config_entries.flow.async_init(
             IZONE, context={"source": config_entries.SOURCE_USER}
         )
