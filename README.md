@@ -1,3 +1,9 @@
+# Please note
+
+This is pre-alpha, I've really just extracted the code from HA, it's not polished and it doesn't currently work.
+WIP until I get time to sort it out.
+
+
 # iZone Custom Integration
 
 [![GitHub Release][releases-shield]][releases]
